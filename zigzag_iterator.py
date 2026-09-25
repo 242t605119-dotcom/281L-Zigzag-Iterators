@@ -14,8 +14,9 @@ class ZigzagIterator:
         value = next(iterator)
 
         try:
-            self.queue.append(iterator)
-        except:
+            next_value = next(iterator)
+            self.queue.append(iter([next_value] + list(iterator)))
+        except StopIteration:
             pass
 
         return value
